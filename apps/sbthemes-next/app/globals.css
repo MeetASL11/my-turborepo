@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=fallback');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary-color: #020617;
+    --secondary-color: #008080;
+}
+
+@layer components {
+    .nav-links.active {
+        @apply text-primary;
+    }
+}
+
+.product-swiper .swiper-pagination {
+    @apply !bottom-5 flex items-center justify-center gap-2.5 lg:!bottom-[30px];
+}
+.product-swiper .swiper-pagination .swiper-pagination-bullet-active {
+    @apply h-1 !w-5 shrink-0 rounded-full !bg-primary transition-all duration-500;
+}
+.swiper-pagination-bullet {
+    @apply !m-0 !h-1 !w-2 shrink-0 !scale-100 !rounded-full bg-primary/20;
+}
+
+/* Flatpickr */
+.flatpickr-input {
+    @apply !hidden;
+}
+.flatpickr-wrapper .form-control {
+    @apply !hidden;
+}
+.flatpickr-calendar {
+    @apply !shadow-none;
+}
+.flatpickr-months {
+    @apply !flex !items-center border-b border-border;
+}
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month {
+    @apply !grid !size-10 !place-items-center hover:!bg-gray-100 [&>svg]:hover:!fill-secondary;
+}
+.flatpickr-months .flatpickr-month {
+    @apply !h-10;
+}
+.flatpickr-current-month {
+    @apply !pt-0;
+}
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+    @apply !p-2;
+}
+.dayContainer .flatpickr-day.selected {
+    @apply !border-secondary !bg-secondary;
+}
+
+.custom-background {
+    @apply bg-white;
+    background-size: 20px 20px;
+    background-position:
+        0px 0px,
+        0px 10px,
+        10px -10px,
+        -10px 0px;
+    background-image: linear-gradient(
+            45deg,
+            rgb(238, 238, 238) 25%,
+            transparent 25%
+        ),
+        linear-gradient(-45deg, rgb(238, 238, 238) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgb(238, 238, 238) 75%),
+        linear-gradient(-45deg, transparent 75%, rgb(238, 238, 238) 75%) !important;
+}
+
+.cubic-bezier .custom-before::before,
+.cubic-bezier .custom-after::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    width: 2px;
+    height: 13px;
+    background: rgb(0, 0, 0);
+}
+
+.cubic-bezier .custom-before::before {
+    left: 0;
+}
+
+.cubic-bezier .custom-after::after {
+    right: 0;
+}
+
+@keyframes cubic-bezier-animation {
+    0% {
+        left: 33.33%;
+    }
+    100% {
+        left: 66.66%;
+    }
+}
+
+.hide-pagination-mobile .swiper-pagination {
+    @apply !hidden sm:!flex;
+}
